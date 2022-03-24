@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rock, Paper, Scissors!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple game of Swords, Bows & Magic!">
+  <meta name="author" content="https://github.com/ramonster-dev">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="script/script.js" defer></script>
+  <title>Swords, Bows & Magic!</title>
 </head>
 <body>
- <h1>A purely console based Rock, Paper, Scissors! (for now)</h1>
+  <h1>Swords, Bows & Magic</h1>
+  <div class="flex-container">
+    <div class="score-container">
+      <p>Player</p>
+      <p>0</p>
+    </div>
+    <div class="score-container">
+      <p>Computer</p>
+      <p>0</p>
+    </div>
+  </div>
+  <div class="prompt">
+    <p>Choose your weapon!</p>
+  </div>
+  <div class="flex-container">
+    <button class="user-choice">Sword</button>
+    <button class="user-choice">Bows</button>
+    <button class="user-choice">Magic</button>
+  </div>
+  <div class="result">
+    <p></p>
+  </div>
 </body>
-<script src="script/script.js"></script>
 </html>
