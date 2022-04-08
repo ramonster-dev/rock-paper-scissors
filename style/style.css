@@ -3,28 +3,43 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  font-family: Alagard;
 }
 
-body {
+/*------------- Home ---------------*/
+.home-container {
   height: 100vh;
+  background-color: #000;
+  color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
-.flex-container {
-  display: flex;
-  gap: 15px;
-}
-
-.score-container {
+.logo-container {
   text-align: center;
 }
 
-.score-container > p {
-  padding-bottom: 10px;
+.logo-container > img {
+  height: 15rem;
+}
+
+.logo-container > h1 {
+  font-size: 5rem;
+}
+
+.play-btn {
+  padding: 0.5rem 6rem;
+  border: 5px solid #FFF;
+  border-radius: 11px;
+  font-size: 2rem;
+}
+
+.play-btn > a {
+  text-decoration: none;
+  color: inherit;
 }
 
 
