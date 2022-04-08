@@ -22,24 +22,29 @@
   text-align: center;
 }
 
-.logo-container > img {
-  height: 15rem;
+.logo-container > svg {
+  height: 40rem;
 }
 
 .logo-container > h1 {
-  font-size: 5rem;
+  font-size: 8rem;
 }
 
 .play-btn {
   padding: 0.5rem 6rem;
   border: 5px solid #FFF;
   border-radius: 11px;
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+.play-btn:hover {
+  background-color: #FFF;
+  color: #000;
 }
 
 .play-btn > a {
   text-decoration: none;
   color: inherit;
+  text-transform: uppercase;
 }
-
 
