@@ -3,7 +3,6 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-family: Alagard;
 }
 
 /*------------- Home ---------------*/
@@ -16,35 +15,25 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-family: Alagard, serif;
 }
 
 .logo-container {
   text-align: center;
 }
 
-.logo-container > svg {
-  height: 40rem;
+.logo-container > img {
+  height: 28rem;
 }
 
 .logo-container > h1 {
-  font-size: 8rem;
+  font-size: 6rem;
 }
 
-.play-btn {
-  padding: 0.5rem 6rem;
-  border: 5px solid #FFF;
-  border-radius: 11px;
-  font-size: 2.5rem;
+#play-inactive {
+  height: 4rem;
 }
 
-.play-btn:hover {
-  background-color: #FFF;
-  color: #000;
+#play-active { 
+  display: none; /* Will be toggled when button is being pressed */
 }
-
-.play-btn > a {
-  text-decoration: none;
-  color: inherit;
-  text-transform: uppercase;
-}
-
