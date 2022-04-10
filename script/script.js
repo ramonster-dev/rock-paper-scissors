@@ -1,3 +1,22 @@
+//-----------------------------Home--------------------------------------------
+//Home screen audio
+$(document).ready(function() {
+  $('#home').get(0).play();
+});
+
+//Toggle play button
+$('.play-btn a').click(function(event) {
+  const audio = document.querySelector('#click-play');
+  if (!audio) return;
+
+  event.preventDefault();
+  $('#play-inactive').toggle();
+  $('#play-active').toggle();
+  audio.currentTime = 0;
+  audio.play();
+});
+
+
 //Game logic
 const choices = ['sword', 'bow', 'magic'];
 const userScore = document.getElementById('user-score');
@@ -51,9 +70,3 @@ function displayWinner(userChoice, computerChoice, winner) {
   }
 }
 
-//Toggle play button
-$('.play-btn a').click(function(event) {
-  event.preventDefault();
-  $('#play-inactive').toggle();
-  $('#play-active').toggle();
-});
