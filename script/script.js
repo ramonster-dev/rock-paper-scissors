@@ -1,3 +1,4 @@
+//Game logic
 const choices = ['sword', 'bow', 'magic'];
 const userScore = document.getElementById('user-score');
 const computerScore = document.getElementById('computer-score');
@@ -49,3 +50,10 @@ function displayWinner(userChoice, computerChoice, winner) {
     console.log('You have been defeated and your inventory has been ransacked');
   }
 }
+
+//Toggle play button
+$('.play-btn a').click(function(event) {
+  event.preventDefault();
+  $('#play-inactive').toggle();
+  $('#play-active').toggle();
+});

@@ -36,4 +36,5 @@
 
 #play-active { 
   display: none; /* Will be toggled when button is being pressed */
+  height: 4rem;
 }
