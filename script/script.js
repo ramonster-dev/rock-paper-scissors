@@ -69,4 +69,3 @@ function displayWinner(userChoice, computerChoice, winner) {
     console.log('You have been defeated and your inventory has been ransacked');
   }
 }
-

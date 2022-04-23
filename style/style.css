@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: Alagard, serif;
+}
+
 /*------------- Home ---------------*/
 .home-container {
   height: 100vh;
@@ -20,7 +24,6 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-family: Alagard, serif;
 }
 
 .logo-container {
@@ -43,4 +46,39 @@
   display: none; /* Will be toggled when button is being pressed */
   height: 4rem;
   margin-top: 0.25rem;
+}
+
+/*------------ Game --------------*/
+.game-container {
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  float: right;
+  padding-top: 2%;
+  padding-right: 2%;
+}
+
+.player-container > svg,
+.player-container > img {
+  height: 4rem;
+}
+
+.monster {
+  height: 6%;
+  display: block;
+  margin: 0 auto;
+}
+
+#monster-hp {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
 }
