@@ -12,6 +12,9 @@
   </head>
   <body class="game-container">
     <header>
+      <div class="player-name">
+        <p>PLAYER 1</p>
+      </div>
       <div class="player-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 62 18" shape-rendering="crispEdges">
           <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
@@ -48,39 +51,49 @@
       </div>
     </header>
     <main>
-      <img
-        class="monster"
-        src="assets/images/cake-monster.svg"
-        alt="Eat him up before he eats you! Cakie is coming!"
-      />
-      <svg id="monster-hp" xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 62 18" shape-rendering="crispEdges">
-        <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
-        <path
-          stroke="#000000"
-          d="M0 0h2M60 0h2M0 1h1M61 1h1M4 3h54M3 4h56M3 5h56M3 6h3M7 6h52M3 7h4M8 7h51M3 8h56M3 9h56M4 10h55M3 11h56M3 12h56M3 13h56M4 14h54M0 17h1M61 17h1"
+      <div class="monster-container">
+        <img
+          class="monster"
+          src="assets/images/cake-monster.svg"
+          alt="Eat him up before he eats you! Cakie is coming!"
         />
-        <path
-          stroke="#ffffff"
-          d="M2 0h58M1 1h60M0 2h62M0 3h4M58 3h1M60 3h1M0 4h3M59 4h3M0 5h3M59 5h3M0 6h3M59 6h3M0 7h3M59 7h3M0 8h3M59 8h3M0 9h3M59 9h3M0 10h3M59 10h3M0 11h3M59 11h3M0 12h3M59 12h3M0 13h3M59 13h3M0 14h1M2 14h2M58 14h4M0 15h59M60 15h2M1 16h5M7 16h53"
-        />
-        <path stroke="#fefefe" d="M59 3h1M61 3h1M1 14h1M59 15h1M6 16h1M60 16h1" />
-        <path stroke="#010101" d="M6 6h1M7 7h1M3 10h1" />
-        <path stroke="#727272" d="M0 16h1M61 16h1" />
-        <path stroke="#969696" d="M1 17h3M5 17h56" />
-        <path stroke="#979797" d="M4 17h1" />
-      </svg>
+        <div class="hp-container">
+          <span>HP</span>
+          <svg
+            id="monster-hp"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -0.5 132 7"
+            shape-rendering="crispEdges"
+          >
+            <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+            <path stroke="#000000" d="M0 0h1M131 0h1M0 6h1M131 6h1" />
+            <path stroke="#fefefe" d="M1 0h1M2 3h1M6 3h1" />
+            <path
+              stroke="#ffffff"
+              d="M2 0h129M0 1h132M0 2h132M0 3h2M3 3h3M7 3h125M0 4h132M1 5h130"
+            />
+            <path stroke="#727272" d="M0 5h1M131 5h1" />
+            <path stroke="#969696" d="M1 6h2M4 6h124M129 6h2" />
+            <path stroke="#959595" d="M3 6h1M128 6h1" />
+          </svg>
+        </div>
+      </div>
       <div class="tile-container">
-        <div class="swords-tiles">
-          <img src="assets/images/tile-template.svg" alt="">
+        <div class="tile" id="sword">
+          <img id="sword-inactive" src="assets/images/tile-sword.svg" alt="sword" />
+          <img id="sword-active" class="active" src="assets/images/tile-sword-pressed.svg" alt="Selected sword">
         </div>
-        <div class="bow-tiles">
-          <img src="assets/images/tile-template.svg" alt="">
+        <div class="tile" id="bow">
+          <img id="bow-inactive" src="assets/images/tile-bow.svg" alt="bow" />
+          <img id="bow-active" class="active" src="assets/images/tile-bow-pressed.svg" alt="Selected bow">
         </div>
-        <div class="magic-tiles">
-          <img src="assets/images/tile-template.svg" alt="">
+        <div class="tile" id="magic">
+          <img id="magic-inactive" src="assets/images/tile-magic.svg" alt="magic" />
+          <img id="magic-active" class="active" src="assets/images/tile-magic-pressed.svg" alt="Selected magic">
         </div>
-        <div class="run-tiles">
-          <img src="assets/images/tile-template.svg" alt="">
+        <div class="tile" id="run">
+          <img id="run-inactive" src="assets/images/tile-run.svg" alt="run" />
+          <img id="run-active" class="active" src="assets/images/tile-run-pressed.svg" alt="Selected run">
         </div>
       </div>
     </main>
