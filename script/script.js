@@ -20,11 +20,38 @@ $(".play-btn a").click(function (event) {
 //---------------------------GAME---------------------------------------------
 //Adding functionality to attack tiles
 const tiles = document.querySelectorAll(".tile");
+const choices = ["sword", "bow", "magic"];
 tiles.forEach((tile) => tile.addEventListener("click", playGame));
 
 function playGame() {
-  const userChoice = this.getAttribute("id");
   animateBtn(userChoice);
+  const userChoice = this.getAttribute("id");
+  const monChoice = getMonChoice();
+  const winner = getWinner(userChoice, monChoice);
+}
+
+function getMonChoice() {
+  return choices[Math.floor(Math.random() * 3)];
+}
+
+function getWinner(userChoice, monChoice) {
+  const x = choices.indexOf(userChoice);
+  const y = choices.indexOf(monChoice);
+
+  if (x == y) {
+    return null; //Tie
+  }
+
+  if (mod(x - y, choices.length) < choices.length / 2) {
+    return userChoice;
+  } else {
+    return monChoice;
+  }
+}
+
+function mod(a, b) {
+  const c = a % b;
+  return c < 0 ? c + b : c;
 }
 
 //Button animations
