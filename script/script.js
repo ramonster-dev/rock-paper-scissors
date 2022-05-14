@@ -1,110 +1,163 @@
-/* Assignment
- * 1. Start a new Git repo for your project (done)
- * 2. Create a blank HTML document with a script tag (done)
- * 3. Begin with a function called computerPlay that will randomly return either 'Rock', 'Paper' or
- *    'Scissors'
- * 4. Write a fucntion that plays a single round of Rock Paper Scissors. The function should take
- *    two parameters - the playerSelection and computerSelection - and then return a string that
- *    declares the  winner of the round like so: "You lose! Paper beats Rock!"
- *    a. Make your function's playerSelection parameter case-insensitive
- * 5. Return the results of this funtion call, not console.log() them
- * 6. Write a new function called game() to play a 5 round game that keeps score and reports a
- *    winner or loser at the end
- *    a. Feel free to use loop to call playRound() function 5 times in a row
- *    b. Use console.log() to dispaly the results of each round and the winner at the end
- *    c. Use prompt() to get input from the user
- */
+//-----------------------------Home--------------------------------------------
+//Home screen audio
+$(document).ready(function () {
+  $("#home").get(0).play();
+});
 
-function computerPlay() {
-  let options = ["rock", "paper", "scissors"];
+//Toggle play button
+$(".play-btn a").click(function (event) {
+  const audio = document.querySelector("#click-play");
+  if (!audio) return;
 
-  return options[Math.floor(Math.random() * options.length)];
-}
+  event.preventDefault();
+  $("#play-inactive").toggle();
+  $("#play-active").toggle();
+  audio.currentTime = 0;
+  audio.play();
+  window.location.href = "game.html";
+});
 
-function playerPlay() {
-  return prompt("Rock, paper or scissors? Or press 'X' to exit.").toLowerCase();
-}
+//---------------------------GAME---------------------------------------------
+//Adding functionality to attack tiles
+const tiles = document.querySelectorAll(".tile");
+const choices = ["sword", "bow", "magic"];
+const monsterFill = document.querySelector('.healthbar_fill');
+const battleMsg = document.querySelector('.monster-choice p');
+let monsterHp = 5;
+let userHp = 5;
+const maxHp = 5;
+tiles.forEach((tile) => tile.addEventListener("click", playGame));
 
-function playRound(computerSelection, playerSelection) {
-  return checkWinner(computerSelection, playerSelection);
-}
-
-function game() {
-  let compScore = 0;
-  let playScore = 0;
-  let quit = false;
-
-  for (let i = 0; i < 5; i++) {
-    let computerSelection = computerPlay();
-    let playerSelection = playerPlay();
-
-    if (playerSelection === "x") {
-      i = 5;
-      quit = true;
-    } else if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-      console.log("Please type in either: rock, paper or scissors");
-      i--;
+function playGame() {
+  const userChoice = this.getAttribute("id");
+  if (userChoice === 'run') {
+    let prob = Math.random();
+    if (prob > 0.7) {
+      displayMessage('run', 'run-success');
+      return;
     } else {
-      let outcome = playRound(computerSelection, playerSelection);
-
-      if (outcome === "cwin") {
-        compScore++;
-        computerSelection = formatSelection(computerSelection);
-        console.log(`Your selection: ${playerSelection}\n
-                  You lose! ${computerSelection} beats ${playerSelection}!`);
-      } else if (outcome === "pwin") {
-        playScore++;
-        playerSelection = formatSelection(playerSelection);
-        console.log(`Your selection: ${playerSelection}\n
-                  You win! ${playerSelection} beats ${computerSelection}!`);
-      } else if (outcome === "draw") {
-        playerSelection = formatSelection(playerSelection);
-        console.log(`Your selection: ${playerSelection}\n
-                  It's a draw!`);
-      }
+      displayMessage('run', 'run-fail');
+      renderHealth('monster');
+      checkHealth();
+      return;
     }
   }
-  countScore(compScore, playScore, quit);
+
+  animateBtn(userChoice);
+  const monChoice = getMonChoice();
+  const winner = getWinner(userChoice, monChoice);
+
+  displayMessage(winner, userChoice, monChoice);
+  renderHealth(winner);
+  checkHealth(); //If health reaches 0, end game
 }
 
-function countScore(compScore, playScore, quit) {
-  switch (true) {  
-    case quit === true:
-      console.log(`Thanks for playing! The score was ${playScore}-${compScore}`);
-      break;
-    case compScore > playScore:
-      console.log(`Score: ${playScore}-${compScore}\nThe computer wins!`);
-      break;
-    case playScore > compScore:
-      console.log(`Score: ${playScore}-${compScore}\nYou win!`);
-      break;
-    case compScore === playScore:
-      console.log(`Score: ${playScore}-${compScore}\nYou tied with a computer!`);
+function getMonChoice() {
+  return choices[Math.floor(Math.random() * 3)];
+}
+
+function getWinner(userChoice, monChoice) {
+  if (userChoice === 'run') {
+    return 'monster';
+  }
+
+  const x = choices.indexOf(userChoice);
+  const y = choices.indexOf(monChoice);
+
+  if (x == y) {
+    return null; //Tie
+  }
+
+  if (mod(x - y, choices.length) < choices.length / 2) {
+    return 'monster';
+  } else {
+    return 'user';
   }
 }
 
-function checkWinner(computerSelection, playerSelection) {
-  if (computerSelection === "rock" && playerSelection === "scissors") {
-    return "cwin";
-  } else if (computerSelection === "rock" && playerSelection === "paper") {
-    return "pwin";
-  } else if (computerSelection === "rock" && playerSelection === "rock") {
-    return "draw";
-  } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    return "cwin";
-  } else if (computerSelection === "scissors" && playerSelection === "scissors") {
-    return "null";
-  } else if (computerSelection === "scissors" && playerSelection === "rock") {
-    return "pwin";
-  } else if (computerSelection === "paper" && playerSelection === "scissors") {
-    return "pwin";
-  } else if (computerSelection === "paper" && playerSelection === "paper") {
-    return "draw";
-  } else if (computerSelection === "paper" && playerSelection === "rock") {
-    return "cwin";
+function mod(a, b) {
+  const c = a % b;
+  return c < 0 ? c + b : c;
+}
+
+function checkHealth() {
+  if (monsterHp === 0 || userHp === 0) {
+    endGame()
+  } else {
+    return;
   }
 }
 
-function formatSelection(selection) {
-  return selection.replace(selection.charAt(0), selection.charAt(0).toUpperCase());
+function endGame() {
+  const tileContainer = document.querySelector('.tile-container');
+  tileContainer.style.display = 'none';
+  let main = document.querySelector('main');
+  let p = document.createElement("p");
+  p.style.textAlign = 'center';
+  p.style.fontSize = 2 + 'rem';
+  let restartBtn = document.createElement("a");
+  restartBtn.setAttribute("href", "game.html"); 
+  let restartBtnImg = document.createElement("img");
+  restartBtnImg.setAttribute("src", "assets/images/btn-play.svg");
+  restartBtnImg.style.height = 4 + 'rem';
+  restartBtn.appendChild(restartBtnImg);
+
+  let restartContainer = document.createElement("div");
+  restartContainer.style.display = 'flex';
+  restartContainer.style.flexDirection = 'column';
+  restartContainer.style.justifyContent = 'center';
+  restartContainer.style.alignItems = 'center';
+  restartContainer.style.gap = 15 + 'px';
+  restartContainer.style.paddingTop = 1.5 + 'rem';
+  restartContainer.setAttribute("class", "restart");
+  restartContainer.appendChild(p);
+  restartContainer.appendChild(restartBtn);
+
+  if (userHp > 0) {
+    p.textContent = "Look like you have defeated Cakie! Would you like to play again?";
+  } else {
+    p.textContent = "Looks like you were beaten by a cake. That's kinda embarrassing... Play again?";
+  }
+
+  main.appendChild(restartContainer);
+}
+
+function displayMessage(winner, userChoice, monChoice) {
+  if (winner === 'user') {
+    battleMsg.textContent = `You have dealt a decisive blow with your ${userChoice}. Cakie regrets using ${monChoice}.`;
+  } else if (winner === 'monster') {
+    battleMsg.textContent = `Cakie cackles as it destroys your ${userChoice} with its ${monChoice}.`; 
+  } else if (winner === 'run' && userChoice === 'run-success') {
+    battleMsg.textContent = 'Looks like you managed to run away safely and have skipped this turn.';
+  } else if (winner === 'run' && userChoice === 'run-fail') {
+    battleMsg.textContent = 'Even the gluttonous cake monster is faster than you and you have failed to run away. Take some damage.';
+  } else {
+    battleMsg.textContent = `Seems like you both were overthinking and played ${userChoice}.`;
+  }
+}
+
+//Rendering healthbars
+function renderHealth(winner) {
+  if (winner === 'user') {
+    monsterHp--;
+    let percent = monsterHp / maxHp * 100;
+    monsterFill.style.width = percent + "%";
+  } else if (winner === 'monster') {
+    userHp--;
+    $(`.user-fill-${userHp}`).toggle();
+  }
+}
+
+//Button animations
+function animateBtn(userChoice) {
+  let delayInMS = 350;
+  $(`#${userChoice}-inactive`).toggle();
+  $(`#${userChoice}-active`).toggle();
+
+  //Insert a delay here to make button reset to position
+  setTimeout(function () {
+    $(`#${userChoice}-active`).toggle();
+    $(`#${userChoice}-inactive`).toggle();
+  }, delayInMS);
+  console.log("button clicked");
 }

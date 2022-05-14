@@ -1,0 +1,157 @@
+@font-face {
+  font-family: Alagard;
+  src: url("../assets/fonts/alagard.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: Alagard, serif; 
+}
+
+h1 {
+  font-family: Alagard, serif;
+}
+
+/*------------- Home ---------------*/
+.home-container {
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo-container > img {
+  height: 28rem;
+}
+
+.logo-container > h1 {
+  font-size: 6rem;
+}
+
+#play-inactive {
+  height: 4rem;
+}
+
+#play-active {
+  display: none; /* Will be toggled when button is being pressed */
+  height: 4rem;
+  margin-top: 0.25rem;
+}
+
+.play-navigator {
+  z-index: 1000;
+}
+
+/*------------ Game --------------*/
+.game-container {
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container > header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.player-name {
+  padding-top: 2%;
+  padding-right: 6%;
+  padding-bottom: 10px;
+  font-size: 2rem;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-right: 2%;
+}
+
+.player-container > svg,
+.player-container > img {
+  height: 4rem;
+}
+
+.user-fill-0,
+.user-fill-1,
+.user-fill-2,
+.user-fill-3,
+.user-fill-4 {
+  display: none;
+}
+
+.game-container > main {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15%;
+}
+
+.monster-container {
+  padding-top: 2%;
+  height: 60%;
+}
+
+.monster {
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.hp-container {
+  font-size: 3rem;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  margin: 0 auto;
+}
+
+.healthbar_fill {
+  fill: #FFF;
+  transition: width 0.1s ease-in, fill 0.2s linear;
+}
+
+.monster-choice > p {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.tile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7%;
+  padding: 2% 7.5%;
+
+  background-image: url("../assets/images/tile-container.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.active {
+  display: none;
+  margin-top: 0.25rem;
+}
+
+.tile img {
+  width: 10rem;
+}

@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Rock, Paper, Scissors!</title>
-</head>
-<body>
- <h1>A purely console based Rock, Paper, Scissors! (for now)</h1>
-</body>
-<script src="script/script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A simple game of Swords, Bows & Magic!" />
+    <meta name="author" content="https://github.com/ramonster-dev" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="script/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Swords, Bows & Magic!</title>
+  </head>
+  <body class="home-container">
+    <div class="logo-container">
+      <img src="assets/images/logo.svg" alt="Swords, Bows & Magic" />
+      <h1>Swords, Bows & Magic</h1>
+    </div>
+    <div class="play-btn">
+      <a href="game.html">
+        <img id="play-inactive" src="assets/images/btn-play.svg" alt="Click to play" />
+        <img id="play-active" class="active" src="assets/images/btn-play-pressed.svg" alt="You have already clicked to play"/>
+      </a>
+    </div>
+
+    <audio id="click-play" src="assets/audio/mixkit-single-key-type-2533.wav"></audio>
+    <audio id="home" src="assets/audio/doorways.mp3"></audio>
+  </body>
 </html>

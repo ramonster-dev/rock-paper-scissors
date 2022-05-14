@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A simple game of Swords, Bows  & Magic!" />
+    <meta name="author" content="https://github.com/ramonster-dev" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script src="script/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Swords, Bows & Magic!</title>
+  </head>
+  <body class="game-container">
+    <header>
+      <div class="player-name">
+        <p>PLAYER 1</p>
+      </div>
+      <div class="player-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 62 18" shape-rendering="crispEdges">
+          <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+          <path
+            stroke="#000000"
+            d="M0 0h2M60 0h2M0 1h1M61 1h1M4 3h43M48 3h10M3 4h2M13 4h2M24 4h3M35 4h3M46 4h3M57 4h2M3 5h1M14 5h1M25 5h1M36 5h1M47 5h1M58 5h1M3 6h1M14 6h1M25 6h1M36 6h1M47 6h1M58 6h1M3 7h1M14 7h1M25 7h1M36 7h1M47 7h1M58 7h1M3 8h1M14 8h1M25 8h1M36 8h1M47 8h1M58 8h1M3 9h1M14 9h1M25 9h1M36 9h1M47 9h1M58 9h1M3 10h1M14 10h1M25 10h1M47 10h1M3 11h1M14 11h1M25 11h1M36 11h1M47 11h1M58 11h1M3 12h1M14 12h1M25 12h1M36 12h1M47 12h1M58 12h1M3 13h2M13 13h3M24 13h3M35 13h3M47 13h2M57 13h2M4 14h12M17 14h33M51 14h7M0 17h1M61 17h1"
+          />
+          <path
+            stroke="#ffffff"
+            d="M2 0h14M17 0h10M28 0h32M1 1h49M51 1h10M0 2h5M6 2h13M20 2h42M0 3h4M58 3h3M0 4h3M5 4h8M16 4h8M28 4h7M38 4h8M49 4h8M59 4h3M0 5h2M4 5h10M15 5h10M26 5h2M29 5h7M37 5h10M48 5h10M59 5h3M0 6h3M4 6h1M6 6h7M15 6h1M17 6h7M26 6h1M28 6h8M37 6h1M39 6h8M48 6h1M50 6h8M59 6h3M0 7h3M4 7h1M6 7h8M15 7h1M17 7h8M26 7h1M28 7h8M37 7h1M39 7h8M48 7h1M50 7h4M55 7h3M59 7h3M0 8h3M4 8h1M6 8h8M15 8h1M17 8h8M26 8h1M28 8h6M35 8h1M37 8h1M39 8h8M48 8h1M50 8h8M59 8h3M0 9h3M4 9h1M6 9h8M15 9h1M17 9h8M26 9h1M28 9h8M37 9h1M39 9h8M48 9h1M50 9h8M59 9h3M0 10h1M2 10h1M4 10h1M6 10h8M15 10h1M17 10h8M26 10h1M28 10h8M37 10h1M39 10h7M48 10h1M50 10h8M59 10h3M0 11h3M4 11h2M7 11h4M12 11h2M15 11h2M18 11h7M26 11h2M30 11h6M37 11h2M40 11h7M48 11h2M51 11h7M59 11h3M0 12h3M5 12h5M11 12h2M16 12h8M27 12h8M38 12h8M49 12h8M59 12h3M0 13h3M59 13h3M0 14h4M58 14h4M0 15h12M13 15h39M53 15h9M1 16h5M7 16h53"
+          />
+          <path
+            stroke="#fefefe"
+            d="M16 0h1M27 0h1M50 1h1M5 2h1M19 2h1M61 3h1M27 4h1M2 5h1M28 5h1M13 6h1M24 6h1M54 7h1M34 8h1M1 10h1M46 10h1M11 11h1M29 11h1M10 12h1M12 15h1M52 15h1M6 16h1M60 16h1"
+          />
+          <path stroke="#010101" d="M47 3h1M15 4h1M36 10h1M58 10h1M46 13h1M16 14h1M50 14h1" />
+          <path
+            stroke="#b2b2b2"
+            d="M5 6h1M16 6h1M27 6h1M38 6h1M49 6h1M5 7h1M16 7h1M27 7h1M38 7h1M49 7h1M5 8h1M16 8h1M27 8h1M38 8h1M49 8h1M5 9h1M16 9h1M27 9h1M38 9h1M49 9h1M5 10h1M27 10h1M38 10h1M49 10h1M6 11h1M17 11h1M28 11h1M39 11h1M50 11h1"
+          />
+          <path stroke="#b3b3b3" d="M16 10h1" />
+          <path stroke="#717171" d="M4 12h1M13 12h1" />
+          <path
+            stroke="#727272"
+            d="M15 12h1M24 12h1M26 12h1M35 12h1M37 12h1M46 12h1M48 12h1M57 12h1M0 16h1M61 16h1"
+          />
+          <path
+            stroke="#969696"
+            d="M5 13h8M16 13h3M20 13h4M27 13h7M39 13h4M44 13h2M49 13h8M1 17h3M5 17h56"
+          />
+          <path stroke="#979797" d="M19 13h1M34 13h1M38 13h1M43 13h1M4 17h1" />
+
+          <svg x="3.5" y="3" width="11" height="11">
+            <rect class="user-fill-0" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="15" y="3" width="11" height="11">
+            <rect class="user-fill-1" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="25.5" y="3" width="11" height="11">
+            <rect class="user-fill-2" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="37" y="3" width="11" height="11">
+            <rect class="user-fill-3" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="47" y="3" width="11.5" height="11">
+            <rect class="user-fill-4" width="100%" height="100%" fill="black"></rect>
+          </svg>
+        </svg>
+        <img src="assets/images/tile-template.svg" alt="" />
+      </div>
+    </header>
+    <main>
+      <div class="monster-container">
+        <img
+          class="monster"
+          src="assets/images/cake-monster.svg"
+          alt="Eat him up before he eats you! Cakie is coming!"
+        /> 
+        <div class="monster-choice">
+          <p>Select your attack!</p>
+        </div>
+        <div class="hp-container">
+          <span>HP</span>
+          <svg
+            id="monster-hp"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -0.5 132 7"
+            shape-rendering="crispEdges"
+          >
+            <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+            <path
+              stroke="#000000"
+              d="M0 0h1M131 0h1M1 1h130M1 2h130M1 3h130M1 4h2M4 4h127M0 6h1M131 6h1"
+            />
+            <path
+              stroke="#ffffff"
+              d="M1 0h130M0 1h1M131 1h1M0 2h1M131 2h1M0 3h1M131 3h1M0 4h1M131 4h1M1 5h1M3 5h125M129 5h2"
+            />
+            <path stroke="#010101" d="M3 4h1" />
+            <path stroke="#727272" d="M0 5h1M131 5h1" />
+            <path stroke="#fefefe" d="M2 5h1M128 5h1" />
+            <path stroke="#969696" d="M1 6h2M4 6h127" />
+            <path stroke="#959595" d="M3 6h1" />
+
+            <!-- Fill container -->
+            <svg x="1" y="0" width="130" height="5">
+              <rect class="healthbar_fill" width="100%" height="100%"></rect>
+            </svg>
+          </svg>
+        </div>
+      </div>
+      <div class="tile-container">
+        <div class="tile" id="sword">
+          <img id="sword-inactive" src="assets/images/tile-sword.svg" alt="sword" />
+          <img
+            id="sword-active"
+            class="active"
+            src="assets/images/tile-sword-pressed.svg"
+            alt="Selected sword"
+          />
+        </div>
+        <div class="tile" id="bow">
+          <img id="bow-inactive" src="assets/images/tile-bow.svg" alt="bow" />
+          <img
+            id="bow-active"
+            class="active"
+            src="assets/images/tile-bow-pressed.svg"
+            alt="Selected bow"
+          />
+        </div>
+        <div class="tile" id="magic">
+          <img id="magic-inactive" src="assets/images/tile-magic.svg" alt="magic" />
+          <img
+            id="magic-active"
+            class="active"
+            src="assets/images/tile-magic-pressed.svg"
+            alt="Selected magic"
+          />
+        </div>
+        <div class="tile" id="run">
+          <img id="run-inactive" src="assets/images/tile-run.svg" alt="run" />
+          <img
+            id="run-active"
+            class="active"
+            src="assets/images/tile-run-pressed.svg"
+            alt="Selected run"
+          />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
