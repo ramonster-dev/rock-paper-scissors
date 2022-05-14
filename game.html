@@ -46,6 +46,22 @@
             d="M5 13h8M16 13h3M20 13h4M27 13h7M39 13h4M44 13h2M49 13h8M1 17h3M5 17h56"
           />
           <path stroke="#979797" d="M19 13h1M34 13h1M38 13h1M43 13h1M4 17h1" />
+
+          <svg x="3.5" y="3" width="11" height="11">
+            <rect class="user-fill-0" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="15" y="3" width="11" height="11">
+            <rect class="user-fill-1" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="25.5" y="3" width="11" height="11">
+            <rect class="user-fill-2" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="37" y="3" width="11" height="11">
+            <rect class="user-fill-3" width="100%" height="100%" fill="black"></rect>
+          </svg>
+          <svg x="47" y="3" width="11.5" height="11">
+            <rect class="user-fill-4" width="100%" height="100%" fill="black"></rect>
+          </svg>
         </svg>
         <img src="assets/images/tile-template.svg" alt="" />
       </div>
@@ -56,7 +72,10 @@
           class="monster"
           src="assets/images/cake-monster.svg"
           alt="Eat him up before he eats you! Cakie is coming!"
-        />
+        /> 
+        <div class="monster-choice">
+          <p>Select your attack!</p>
+        </div>
         <div class="hp-container">
           <span>HP</span>
           <svg
@@ -66,34 +85,63 @@
             shape-rendering="crispEdges"
           >
             <metadata>Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
-            <path stroke="#000000" d="M0 0h1M131 0h1M0 6h1M131 6h1" />
-            <path stroke="#fefefe" d="M1 0h1M2 3h1M6 3h1" />
+            <path
+              stroke="#000000"
+              d="M0 0h1M131 0h1M1 1h130M1 2h130M1 3h130M1 4h2M4 4h127M0 6h1M131 6h1"
+            />
             <path
               stroke="#ffffff"
-              d="M2 0h129M0 1h132M0 2h132M0 3h2M3 3h3M7 3h125M0 4h132M1 5h130"
+              d="M1 0h130M0 1h1M131 1h1M0 2h1M131 2h1M0 3h1M131 3h1M0 4h1M131 4h1M1 5h1M3 5h125M129 5h2"
             />
+            <path stroke="#010101" d="M3 4h1" />
             <path stroke="#727272" d="M0 5h1M131 5h1" />
-            <path stroke="#969696" d="M1 6h2M4 6h124M129 6h2" />
-            <path stroke="#959595" d="M3 6h1M128 6h1" />
+            <path stroke="#fefefe" d="M2 5h1M128 5h1" />
+            <path stroke="#969696" d="M1 6h2M4 6h127" />
+            <path stroke="#959595" d="M3 6h1" />
+
+            <!-- Fill container -->
+            <svg x="1" y="0" width="130" height="5">
+              <rect class="healthbar_fill" width="100%" height="100%"></rect>
+            </svg>
           </svg>
         </div>
       </div>
       <div class="tile-container">
         <div class="tile" id="sword">
           <img id="sword-inactive" src="assets/images/tile-sword.svg" alt="sword" />
-          <img id="sword-active" class="active" src="assets/images/tile-sword-pressed.svg" alt="Selected sword">
+          <img
+            id="sword-active"
+            class="active"
+            src="assets/images/tile-sword-pressed.svg"
+            alt="Selected sword"
+          />
         </div>
         <div class="tile" id="bow">
           <img id="bow-inactive" src="assets/images/tile-bow.svg" alt="bow" />
-          <img id="bow-active" class="active" src="assets/images/tile-bow-pressed.svg" alt="Selected bow">
+          <img
+            id="bow-active"
+            class="active"
+            src="assets/images/tile-bow-pressed.svg"
+            alt="Selected bow"
+          />
         </div>
         <div class="tile" id="magic">
           <img id="magic-inactive" src="assets/images/tile-magic.svg" alt="magic" />
-          <img id="magic-active" class="active" src="assets/images/tile-magic-pressed.svg" alt="Selected magic">
+          <img
+            id="magic-active"
+            class="active"
+            src="assets/images/tile-magic-pressed.svg"
+            alt="Selected magic"
+          />
         </div>
         <div class="tile" id="run">
           <img id="run-inactive" src="assets/images/tile-run.svg" alt="run" />
-          <img id="run-active" class="active" src="assets/images/tile-run-pressed.svg" alt="Selected run">
+          <img
+            id="run-active"
+            class="active"
+            src="assets/images/tile-run-pressed.svg"
+            alt="Selected run"
+          />
         </div>
       </div>
     </main>

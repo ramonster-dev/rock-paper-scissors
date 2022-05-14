@@ -87,6 +87,14 @@ h1 {
   height: 4rem;
 }
 
+.user-fill-0,
+.user-fill-1,
+.user-fill-2,
+.user-fill-3,
+.user-fill-4 {
+  display: none;
+}
+
 .game-container > main {
   height: 80%;
   display: flex;
@@ -114,6 +122,17 @@ h1 {
   align-items: center;
   gap: 2%;
   margin: 0 auto;
+}
+
+.healthbar_fill {
+  fill: #FFF;
+  transition: width 0.1s ease-in, fill 0.2s linear;
+}
+
+.monster-choice > p {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .tile-container {
