@@ -5,4 +5,7 @@ Originally this started off as a pure-console implementation of the classic game
 
 In this version of RPS, you play as an adventurer and you have encountered Cakie, a legendary player within the Swords, Bows & Magic scene. If you ever want to continue in your journey, you're going to have to go through him first or die trying.
 
-![rps-demo](https://user-images.githubusercontent.com/97433296/168409678-2425c3d2-3d15-4ca9-9c1b-3a3fe2ce8342.gif)
+<p align="center">
+  <img height="150" src="https://user-images.githubusercontent.com/97433296/168409678-2425c3d2-3d15-4ca9-9c1b-3a3fe2ce8342.gif">
+</p>
+
