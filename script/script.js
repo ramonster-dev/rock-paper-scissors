@@ -24,8 +24,8 @@ const choices = ["sword", "bow", "magic"];
 tiles.forEach((tile) => tile.addEventListener("click", playGame));
 
 function playGame() {
-  animateBtn(userChoice);
   const userChoice = this.getAttribute("id");
+  animateBtn(userChoice);
   const monChoice = getMonChoice();
   const winner = getWinner(userChoice, monChoice);
 }
@@ -65,4 +65,5 @@ function animateBtn(userChoice) {
     $(`#${userChoice}-active`).toggle();
     $(`#${userChoice}-inactive`).toggle();
   }, delayInMS);
+  console.log("button clicked");
 }
