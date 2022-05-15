@@ -115,6 +115,12 @@ h1 {
   margin: 0 auto;
 }
 
+.monster-dead {
+  height: 100%;
+  display: none;
+  margin: 0 auto;
+}
+
 .hp-container {
   font-size: 3rem;
   width: 60%;

@@ -89,20 +89,36 @@ function checkHealth() {
 }
 
 function endGame() {
+
+  let p = document.createElement('p');
+
+  if (userHp > 0) {
+    $('.monster').toggle();
+    $('.monster-dead').toggle();
+    p.textContent = "Look like you have defeated Cakie! Would you like to play again?";
+  } else {
+    p.textContent = "Looks like you were beaten by a cake. That's kinda embarrassing... Play again?";
+  }
+
+  addRestartMessage(p);
+}
+
+function addRestartMessage(p) {
   const tileContainer = document.querySelector('.tile-container');
-  tileContainer.style.display = 'none';
   let main = document.querySelector('main');
-  let p = document.createElement("p");
+  let restartBtn = document.createElement("a");
+  let restartBtnImg = document.createElement("img");
+  let restartContainer = document.createElement("div");
+
+  tileContainer.style.display = 'none';
+
   p.style.textAlign = 'center';
   p.style.fontSize = 2 + 'rem';
-  let restartBtn = document.createElement("a");
   restartBtn.setAttribute("href", "game.html"); 
-  let restartBtnImg = document.createElement("img");
   restartBtnImg.setAttribute("src", "assets/images/btn-play.svg");
   restartBtnImg.style.height = 4 + 'rem';
   restartBtn.appendChild(restartBtnImg);
 
-  let restartContainer = document.createElement("div");
   restartContainer.style.display = 'flex';
   restartContainer.style.flexDirection = 'column';
   restartContainer.style.justifyContent = 'center';
@@ -112,12 +128,6 @@ function endGame() {
   restartContainer.setAttribute("class", "restart");
   restartContainer.appendChild(p);
   restartContainer.appendChild(restartBtn);
-
-  if (userHp > 0) {
-    p.textContent = "Look like you have defeated Cakie! Would you like to play again?";
-  } else {
-    p.textContent = "Looks like you were beaten by a cake. That's kinda embarrassing... Play again?";
-  }
 
   main.appendChild(restartContainer);
 }
